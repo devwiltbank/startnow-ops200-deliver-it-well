@@ -29,12 +29,24 @@ describe('server/app.js', function() {
   });
 
   it('page says hello world', (done) => {
-  chai.request(server)
-    .get('/')
-    .end((err, res) => {
-      expect(err).not.exist;
-      expect(JSON.stringify(res.text)).to.contain('Hello World');
-      done();
-    });
+    chai.request(server)
+      .get('/')
+      .end((err, res) => {
+        expect(err).not.exist;
+        expect(JSON.stringify(res.text)).to.contain('Hello World');
+        done();
+      });
   });
+
+  it('page says You are serving up the public folder', (done) => {
+    chai.request(server)
+      .get('/')
+      .end((err, res) => {
+        expect(err).not.exist;
+        expect(JSON.stringify(res.text)).to.contain('Hello World');
+        done();
+      });
+  });
+
+
 })
